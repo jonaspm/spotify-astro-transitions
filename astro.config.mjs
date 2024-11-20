@@ -6,13 +6,9 @@ import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
-  root: "./src",
-  integrations: [tailwind(), svelte(), icon({
-    include: {
-      mdi: ['*'],
-      carbon: ['*'],
-      ion: ['*'],
-      tabler: ['*']
-    }
-  })],
+  integrations: [icon(), tailwind(), svelte()],
+  experimental: {
+    serverIslands: true,
+  },
+  output: "server",
 });
